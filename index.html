@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio Fotografico</title>
+
+<style>
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: #0d0d0d;
+    color: #fff;
+}
+
+/* HEADER */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(0,0,0,0.8);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 20px;
+}
+
+nav a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    background: url('foto1.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 50px;
+    background: rgba(0,0,0,0.5);
+    padding: 20px;
+}
+
+/* GALLERIA */
+.gallery {
+    padding: 80px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* ABOUT */
+.about {
+    padding: 60px 20px;
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: black;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Il tuo nome</h1>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Galleria</a>
+        <a href="#">Contatti</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Fotografia che racconta emozioni</h2>
+</section>
+
+<section class="gallery">
+    <img src="foto1.jpg">
+    <img src="foto2.jpg">
+    <img src="foto3.jpg">
+    <img src="foto4.jpg">
+</section>
+
+<section class="about">
+    <h2>Chi sono</h2>
+    <p>
+    Sono un fotografo professionista specializzato in ritratti e paesaggi.
+    Racconto storie attraverso la luce e i dettagli.
+    </p>
+</section>
+
+<footer>
+    <p>© 2026 - Il tuo nome</p>
+</footer>
+
+</body>
+</html>
