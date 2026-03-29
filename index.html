@@ -7,10 +7,11 @@
 
 <style>
 
+/* RESET */
 body {
     margin: 0;
-    font-family: 'Arial', sans-serif;
-    background: #0d0d0d;
+    font-family: Arial, sans-serif;
+    background: #000;
     color: #fff;
 }
 
@@ -19,22 +20,25 @@ header {
     position: fixed;
     width: 100%;
     top: 0;
-    background: rgba(0,0,0,0.8);
-    padding: 15px 30px;
     display: flex;
     justify-content: space-between;
+    padding: 20px 40px;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
     z-index: 1000;
 }
 
 header h1 {
     margin: 0;
-    font-size: 20px;
+    font-size: 18px;
+    letter-spacing: 2px;
 }
 
 nav a {
     color: white;
     margin-left: 20px;
     text-decoration: none;
+    font-size: 14px;
 }
 
 /* HERO */
@@ -44,13 +48,13 @@ nav a {
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
 }
 
 .hero h2 {
-    font-size: 50px;
-    background: rgba(0,0,0,0.5);
-    padding: 20px;
+    font-size: 60px;
+    text-align: center;
+    background: rgba(0,0,0,0.4);
+    padding: 20px 40px;
 }
 
 /* GALLERIA */
@@ -58,32 +62,51 @@ nav a {
     padding: 80px 20px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px;
+    gap: 10px;
 }
 
 .gallery img {
     width: 100%;
-    border-radius: 10px;
+    cursor: pointer;
     transition: 0.3s;
 }
 
 .gallery img:hover {
-    transform: scale(1.05);
+    opacity: 0.8;
 }
 
 /* ABOUT */
 .about {
-    padding: 60px 20px;
+    padding: 80px 20px;
+    text-align: center;
     max-width: 800px;
     margin: auto;
-    text-align: center;
 }
 
 /* FOOTER */
 footer {
     text-align: center;
     padding: 20px;
-    background: black;
+    background: #000;
+}
+
+/* LIGHTBOX */
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.95);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
 }
 
 </style>
@@ -92,7 +115,7 @@ footer {
 <body>
 
 <header>
-    <h1>Il tuo nome</h1>
+    <h1>IL TUO NOME</h1>
     <nav>
         <a href="#">Home</a>
         <a href="#">Galleria</a>
@@ -101,27 +124,45 @@ footer {
 </header>
 
 <section class="hero">
-    <h2>Fotografia che racconta emozioni</h2>
+    <h2>Raccontare storie attraverso la luce</h2>
 </section>
 
 <section class="gallery">
-    <img src="foto1.jpg">
-    <img src="foto2.jpg">
-    <img src="foto3.jpg">
-    <img src="foto4.jpg">
+    <img src="foto1.jpg" onclick="apriLightbox(this)">
+    <img src="foto2.jpg" onclick="apriLightbox(this)">
+    <img src="foto3.jpg" onclick="apriLightbox(this)">
+    <img src="foto4.jpg" onclick="apriLightbox(this)">
 </section>
 
 <section class="about">
     <h2>Chi sono</h2>
     <p>
-    Sono un fotografo professionista specializzato in ritratti e paesaggi.
-    Racconto storie attraverso la luce e i dettagli.
+    Fotografo specializzato in ritratti e fotografia artistica.
+    Ogni immagine è un frammento di storia, un momento irripetibile.
     </p>
 </section>
 
 <footer>
     <p>© 2026 - Il tuo nome</p>
 </footer>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="chiudiLightbox()">
+    <img id="imgLightbox">
+</div>
+
+<script>
+
+function apriLightbox(img) {
+    document.getElementById("lightbox").style.display = "flex";
+    document.getElementById("imgLightbox").src = img.src;
+}
+
+function chiudiLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+}
+
+</script>
 
 </body>
 </html>
